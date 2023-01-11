@@ -1,0 +1,19 @@
+##job
+executar_teste:
+  before_script:
+    ##preparação a ser feita como definição de variáveis, especificação de chaves de acesso etc
+    - echo "Preparando testes"
+  ##atributo obrigatório
+  script:
+    - echo "Executando testes..."
+  after_script:
+    ##limpeza de arquivos temporários etc pode ser executado com o after
+    - echo "Apagando arquivos temporários..."
+
+criar_imagens:
+  script:
+    - echo "Criando as imagens..."
+
+push_imagens:
+  script:
+    - echo "Realizando upload das imagens..."
