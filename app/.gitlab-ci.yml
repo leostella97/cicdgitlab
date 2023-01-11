@@ -1,5 +1,13 @@
+##criar estágios
+stages:
+  - teste
+  - build
+  - deploy
+
 ##job
 executar_teste:
+##chamando o stage no script
+  stage: teste
   before_script:
     ##preparação a ser feita como definição de variáveis, especificação de chaves de acesso etc
     - echo "Preparando testes"
@@ -10,10 +18,22 @@ executar_teste:
     ##limpeza de arquivos temporários etc pode ser executado com o after
     - echo "Apagando arquivos temporários..."
 
+executar_teste2:
+  stage: teste
+  script:
+    - echo "Executando teste 2..."
+
 criar_imagens:
+  stage: build
   script:
     - echo "Criando as imagens..."
 
 push_imagens:
+  stage: build
   script:
     - echo "Realizando upload das imagens..."
+
+kubernetes:
+  stage: deploy
+  script:
+    - echo "Executando deploy..."
