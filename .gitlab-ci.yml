@@ -14,6 +14,12 @@ executar_teste:
   ##atributo obrigatório
   script:
     - echo "Executando testes..."
+    - pwd
+    - ls
+    - cat /etc/os-release
+    - mkdir pipeline
+    - ls
+    
   after_script:
     ##limpeza de arquivos temporários etc pode ser executado com o after
     - echo "Apagando arquivos temporários..."
