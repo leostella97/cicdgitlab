@@ -29,6 +29,10 @@ criar_imagens:
     - echo "Criando as imagens..."
 
 push_imagens:
+##só executa se a anterior concluiu com sucesso
+  needs:
+    ## especifica quais são as dependencias que devem ter sido concluídas
+    - criar_imagens
   stage: build
   script:
     - echo "Realizando upload das imagens..."
