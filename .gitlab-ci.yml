@@ -1,3 +1,11 @@
+##fluxo de trabalho para acrescentar  regra 
+workflow:
+  ##regra que se for diferente da branch main nunca fazer e caso contrário fazer
+  rules:
+  ## essa é uma variável global da branch em uso, != é se for diferente
+    - if: $CI_COMMIT_BRANCH != "main"
+      when: never
+    - when: always
 ##criar estágios
 stages:
   - teste
@@ -27,13 +35,18 @@ executar_teste2:
     - echo "Executando teste 2..."
 
 criar_imagens:
+  ##only:
+    ##- main
   stage: build
   script:
     - echo "Criando as imagens..."
 
 push_imagens:
+## especifíca em somente em qual branch vai rodar
+  ##only:
+    ##- main
 ##só executa se a anterior concluiu com sucesso
-  needs:
+  needs: 
     ## especifica quais são as dependencias que devem ter sido concluídas
     - criar_imagens
   stage: build
@@ -41,6 +54,10 @@ push_imagens:
     - echo "Realizando upload das imagens..."
 
 kubernetes:
+  needs:
+    - push_imagens
+  ##only:
+    ##- main
   stage: deploy
   script:
     - echo "Executando deploy..."
