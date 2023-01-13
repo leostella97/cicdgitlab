@@ -6,6 +6,10 @@ workflow:
     - if: $CI_COMMIT_BRANCH != "main"
       when: never
     - when: always
+
+##especificando antes diz que será utilizado em todos os jobs
+image: docker pull node:19.4
+
 ##criar estágios
 stages:
   - teste
@@ -33,6 +37,8 @@ executar_teste2:
   stage: teste
   script:
     - echo "Executando teste 2..."
+    ##mostrar versão do npm
+    - npm version
 
 criar_imagens:
   ##only:
