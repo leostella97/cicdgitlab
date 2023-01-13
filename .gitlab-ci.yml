@@ -39,7 +39,7 @@ criar_imagens:
     ##- main
   stage: build
   script:
-    - echo "Criando as imagens..."
+    - echo "Criando as imagens..." 
 
 push_imagens:
 ## especifíca em somente em qual branch vai rodar
