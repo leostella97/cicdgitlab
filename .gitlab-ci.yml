@@ -1,11 +1,11 @@
 ##fluxo de trabalho para acrescentar  regra 
-workflow:
+##workflow:
   ##regra que se for diferente da branch main nunca fazer e caso contrário fazer
-  rules:
+  ##rules:
   ## essa é uma variável global da branch em uso, != é se for diferente
-    - if: $CI_COMMIT_BRANCH != "main"
-      when: never
-    - when: always
+    ##- if: $CI_COMMIT_BRANCH != "main"
+      ##when: never
+    ##- when: always
 
 ##especificando antes diz que será utilizado em todos os jobs
 ##image: docker pull node:19.4
