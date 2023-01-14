@@ -15,7 +15,7 @@ stages:
   - teste
   - build
   - deploy
-
+ 
 ##job
 executar_teste:
 ##chamando o stage no script
