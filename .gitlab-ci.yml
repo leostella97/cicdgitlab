@@ -8,14 +8,14 @@ workflow:
     - when: always
 
 ##especificando antes diz que será utilizado em todos os jobs
-image: docker pull node:19.4
+##image: docker pull node:19.4
 
 ##criar estágios
 stages:
   - teste
   - build
   - deploy
- 
+
 ##job
 executar_teste:
 ##chamando o stage no script
@@ -34,6 +34,8 @@ executar_teste:
     - echo "Apagando arquivos temporários..."
 
 executar_teste2:
+## define uma imagem especifica para o job
+  image: node:19.4
   stage: teste
   script:
     - echo "Executando teste 2..."
